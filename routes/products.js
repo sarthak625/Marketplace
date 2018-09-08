@@ -2,10 +2,18 @@ var express = require('express');
 var router = express.Router();
 var dbService = require('../service/productDBService.js');
 
-// /* GET users listing. */
-// router.get('/', function(req, res, next) {
-//   res.send('respond with a resource');
-// });
+/* GET Products listing. */
+router.get('/fetchProducts', function(req, res, next) {
+  var s = dbService.fetchAllProducts(
+  (err, result) => {
+    if (err) {
+      res.send("Unsuccessfull");
+    }
+    else {
+    res.send(result);
+    }
+  });
+});
 
 
 router.post('/insertProduct', function (req, res, next) {

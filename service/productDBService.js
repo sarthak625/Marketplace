@@ -8,6 +8,11 @@ function insert(obj,callback){
     product.save().then(callback);
 }
 
+function fetchAllProducts(callback){
+    return Product.find(callback);
+}
+
 module.exports = {
-    insert
+    insert,
+    fetchAllProducts
 }
