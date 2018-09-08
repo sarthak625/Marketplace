@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var productsRouter = require('./routes/products');
 
 var app = express();
 
@@ -21,12 +21,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/products', productsRouter);
 
 //Connect to mongo
 
 const mongoose = require('mongoose');
-mongoose.connect("mongodb://localhost/testingStuff",{useNewUrlParser:true},()=>console.log("Connected"));
+mongoose.connect("mongodb://localhost/Mimosa",{useNewUrlParser:true},()=>console.log("Connected"));
 
 
 // catch 404 and forward to error handler
